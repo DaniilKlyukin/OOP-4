@@ -1,0 +1,22 @@
+/* styles.css */
+body {
+    margin: 0;
+    overflow: hidden; /* Убираем прокрутку */
+    background-color: #282c34; /* Цвет фона */
+}
+
+.container {
+    position: relative;
+    width: 100vw; /* Ширина контейнера */
+    height: 100vh; /* Высота контейнера */
+}
+
+.cube {
+    position: absolute;
+    width: 50px; /* Ширина кубика */
+    height: 50px; /* Высота кубика */
+    background-color: #61dafb; /* Цвет кубика */
+    opacity: 0.8; /* Прозрачность */
+    border-radius: 5px; /* Закругленные углы */
+    animation: fall linear forwards; /* Применяем анимацию */
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель фильтров и товары</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS файл -->
+</head>
+<body>
+    <div class="container">
+	
+        <div class="filter-panel" id="filterPanel">
+            <h2>Фильтры</h2>
+            <form>
+                <label for="productName">Название продукта:</label>
+                <input type="text" id="productName" name="productName">
+
+                <label for="minPrice">Минимальная цена:</label>
+                <input type="number" id="minPrice" name="minPrice">
+
+                <label for="maxPrice">Максимальная цена:</label>
+                <input type="number" id="maxPrice" name="maxPrice">
+
+                <button type="submit">Применить</button>
+            </form>
+        </div>
+        <div class="product-panel">
+		    <button id="toggleButton">Скрыть фильтры</button>
+            <h2>Товары</h2>
+            <div class="product-list">
+                <div class="product-item">Товар 1</div>
+                <div class="product-item">Товар 2</div>
+                <div class="product-item">Товар 3</div>
+                <div class="product-item">Товар 4</div>
+                <div class="product-item">Товар 5</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Подключаем JavaScript файл -->
+</body>
+</html>

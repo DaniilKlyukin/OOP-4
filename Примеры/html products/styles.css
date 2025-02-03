@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.filter-panel {
+    position: fixed; /* Фиксированное позиционирование */
+    width: 250px; /* Ширина панели фильтров */
+    height: 100%; /* Высота панели на всю страницу */
+    background-color: #f4f4f4; /* Цвет фона панели */
+    padding: 20px; /* Отступы внутри панели */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Тень для панели */
+    overflow-y: auto; /* Прокрутка для панели, если контента много */
+}
+
+.filter-panel h2 {
+    margin-top: 0; /* Убираем верхний отступ */
+}
+
+.filter {
+    margin-bottom: 20px; /* Отступ между фильтрами */
+}
+
+.apply-filters {
+    background-color: #007bff; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем рамку */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    cursor: pointer; /* Курсор при наведении */
+}
+
+.apply-filters:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+
+.content {
+    margin-left: 270px; /* Отступ для основного содержимого, чтобы не перекрывать панель фильтров */
+    padding: 20px; /* Отступы внутри основного содержимого */
+    flex-grow: 1; /* Основное содержимое занимает оставшееся пространство */
+}
+
+.products {
+    display: flex;
+    flex-direction: column; /* Расположение товаров в столбик */
+}
+
+.product {
+    width: calc(100% - 60px);
+    margin: 10px auto; /* Центрирование товара с отступами сверху и снизу */
+    background-color: #e9ecef; /* Цвет фона для товаров */
+    padding: 20px; /* Отступы внутри товара */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для товара */
+    border-radius: 5px; /* Скругление углов */
+    text-align: center; /* Центрирование текста */
+}
