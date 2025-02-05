@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Примеры/ASP_NET_MVC_Shop_Example
