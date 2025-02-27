@@ -1,6 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Restaurant.Application.Common.Interfaces.Authentication;
-using Restaurant.Application.Services.Authentication;
+﻿using ErrorOr;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Restaurant.Application.Authentication.Commands.Register;
+using Restaurant.Application.Authentication.Common;
+using Restaurant.Application.Common.Behaviors;
+using System.Reflection;
+
 
 namespace Restaurant.Application;
 
@@ -8,7 +14,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddMediatR(config =>
+            config.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly));
+
+        services.AddScoped(
+            typeof(IPipelineBehavior<,>),
+            typeof(ValidationBehavior<,>));
+
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         return services;
     }

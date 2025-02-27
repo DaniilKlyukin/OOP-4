@@ -1,6 +1,6 @@
 ﻿
 using ErrorOr;
-using Restaurant.Application.Services.Authentication;
+using Restaurant.Application.Authentication.Common;
 
 namespace Restaurant.Application.Common.Interfaces.Authentication;
 

@@ -1,22 +1,18 @@
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Restaurant.Api.Common.Errors;
+using Restaurant.Api;
 using Restaurant.Application;
 using Restaurant.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
+    .AddPresentation()
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
-
-builder.Services.AddControllers();
-
-builder.Services.AddSingleton<ProblemDetailsFactory, RestaurantProblemDetailsFactory>();
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
-
-
 app.Run();
