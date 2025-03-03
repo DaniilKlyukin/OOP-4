@@ -1,4 +1,4 @@
-﻿using Restaurant.Domain.Entities;
+﻿using Restaurant.Domain.UserAggregate;
 
 namespace Restaurant.Application.Common.Interfaces.Persistence;
 

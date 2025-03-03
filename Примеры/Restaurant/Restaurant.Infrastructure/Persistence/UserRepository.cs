@@ -1,5 +1,5 @@
 ﻿using Restaurant.Application.Common.Interfaces.Persistence;
-using Restaurant.Domain.Entities;
+using Restaurant.Domain.UserAggregate;
 
 namespace Restaurant.Infrastructure.Persistence;
 

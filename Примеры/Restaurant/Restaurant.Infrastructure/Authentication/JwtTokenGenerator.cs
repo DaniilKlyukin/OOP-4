@@ -2,13 +2,12 @@
 using Microsoft.IdentityModel.Tokens;
 using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Services;
-using Restaurant.Domain.Entities;
-using Restaurant.Infrastructure.Authentication;
+using Restaurant.Domain.UserAggregate;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Restaurant.Application.Services.Authentication;
+namespace Restaurant.Infrastructure.Authentication;
 
 public class JwtTokenGenerator : IJwtTokenGenerator
 {

@@ -1,9 +1,6 @@
-﻿using ErrorOr;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Restaurant.Application.Authentication.Commands.Register;
-using Restaurant.Application.Authentication.Common;
 using Restaurant.Application.Common.Behaviors;
 using System.Reflection;
 

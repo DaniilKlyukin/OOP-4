@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Persistence;
 using Restaurant.Application.Common.Interfaces.Services;
-using Restaurant.Application.Services.Authentication;
 using Restaurant.Infrastructure.Authentication;
 using Restaurant.Infrastructure.Persistence;
 using Restaurant.Infrastructure.Services;

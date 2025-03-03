@@ -2,12 +2,11 @@
 using MediatR;
 using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Persistence;
-using Restaurant.Domain.Entities;
 using Restaurant.Domain.Common.Errors;
-using Restaurant.Application.Authentication.Queries.Login;
 using Restaurant.Application.Authentication.Common;
+using Restaurant.Domain.UserAggregate;
 
-namespace Restaurant.Application.Authentication.Commands.Register;
+namespace Restaurant.Application.Authentication.Queries.Login;
 
 public class LoginQueryHandler :
     IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
