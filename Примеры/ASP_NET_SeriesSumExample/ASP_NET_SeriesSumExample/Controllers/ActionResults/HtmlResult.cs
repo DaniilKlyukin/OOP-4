@@ -13,7 +13,8 @@ public class HtmlResult : IActionResult
 
     public async Task ExecuteResultAsync(ActionContext context)
     {
-        string fullHtmlCode = @$"<!DOCTYPE html>
+        string fullHtmlCode = @$"
+            <!DOCTYPE html>
             <html>
                 <head>
                     <title>Лабораторная работа 1 Иванов И.И.</title>
