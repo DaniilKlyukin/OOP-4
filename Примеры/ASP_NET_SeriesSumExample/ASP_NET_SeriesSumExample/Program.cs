@@ -1,20 +1,23 @@
-namespace ASP_NET_SeriesSumExample
+using ASP_NET_SeriesSumExample.Services;
+
+namespace ASP_NET_SeriesSumExample;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();           
+        builder.Services.AddTransient<ISeriesService, SeriesService>();
 
-            var app = builder.Build();
+        builder.Services.AddControllers();           
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+        var app = builder.Build();
 
-            app.Run();
-        }
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
+
+        app.Run();
     }
 }

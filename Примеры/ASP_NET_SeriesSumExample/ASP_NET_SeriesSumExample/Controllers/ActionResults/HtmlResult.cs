@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ASP_NET_SeriesSumExample.Controllers.ActionResults
+namespace ASP_NET_SeriesSumExample.Controllers.ActionResults;
+
+public class HtmlResult : IActionResult
 {
-    public class HtmlResult : IActionResult
+    private string htmlCode;
+    public HtmlResult(string html) => htmlCode = html;
+    public async Task ExecuteResultAsync(ActionContext context)
     {
-        string htmlCode;
-        public HtmlResult(string html) => htmlCode = html;
-        public async Task ExecuteResultAsync(ActionContext context)
-        {
-            string fullHtmlCode = @$"<!DOCTYPE html>
+        string fullHtmlCode = @$"<!DOCTYPE html>
             <html>
                 <head>
                     <title>Лабораторная работа 1 Иванов И.И.</title>
@@ -16,7 +16,6 @@ namespace ASP_NET_SeriesSumExample.Controllers.ActionResults
                 </head>
                 <body>{htmlCode}</body>
             </html>";
-            await context.HttpContext.Response.WriteAsync(fullHtmlCode);
-        }
+        await context.HttpContext.Response.WriteAsync(fullHtmlCode);
     }
 }
