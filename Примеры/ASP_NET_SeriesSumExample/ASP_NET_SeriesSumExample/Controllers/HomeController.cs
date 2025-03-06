@@ -7,17 +7,17 @@ namespace ASP_NET_SeriesSumExample.Controllers;
 
 public class HomeController : Controller
 {
-  [HttpGet]
-  public IActionResult Index()
-  {
-    return new SeriesInputView();
-  }
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return new SeriesInputView();
+    }
 
-  [HttpPost]
-  public IActionResult Index([FromServices] ISeriesService seriesService, SeriesRequest request)
-  {
-    var seriesResult = seriesService.Calculate((n) => 1.0 / (n * n), request.n0, request.N);
+    [HttpPost]
+    public IActionResult Index([FromServices] ISeriesService seriesService, SeriesRequest request)
+    {
+        var seriesResult = seriesService.Calculate((n) => 1.0 / (n * n), request.n0, request.N);
 
-    return new SeriesResultView(request, seriesResult);
-  }
+        return new SeriesResultView(request, seriesResult);
+    }
 }

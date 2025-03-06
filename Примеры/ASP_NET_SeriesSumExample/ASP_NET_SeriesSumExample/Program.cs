@@ -10,14 +10,14 @@ public class Program
 
         builder.Services.AddTransient<ISeriesService, SeriesService>();
 
-        builder.Services.AddControllers();           
+        builder.Services.AddControllers();
 
         var app = builder.Build();
 
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
-    
+
         app.Run();
     }
 }
