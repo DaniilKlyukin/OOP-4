@@ -21,7 +21,7 @@ public class SeriesResultView : IActionResult
     {
         var sb = new StringBuilder();
 
-        sb.Append(@$"Сумма первых N={_request.N} членов ряда равна: {_result.TotalSum:F8}<br>");
+        sb.Append($"Сумма первых N={_request.N} членов ряда равна: {_result.TotalSum:F8}<br>");
         sb.Append("Расчёты представлены в таблице ниже<br>");
 
         sb.Append("""
