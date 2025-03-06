@@ -1,6 +1,6 @@
 ﻿using ASP_NET_SeriesSumExample.Services.Common;
 
-namespace ASP_NET_SeriesSumExample.Services;
+namespace ASP_NET_SeriesSumExample.Services.Series;
 
 public class SeriesService : ISeriesService
 {

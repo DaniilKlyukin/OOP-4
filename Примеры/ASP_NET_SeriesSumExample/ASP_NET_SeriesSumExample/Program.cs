@@ -1,4 +1,4 @@
-using ASP_NET_SeriesSumExample.Services;
+using ASP_NET_SeriesSumExample.Services.Series;
 
 namespace ASP_NET_SeriesSumExample;
 

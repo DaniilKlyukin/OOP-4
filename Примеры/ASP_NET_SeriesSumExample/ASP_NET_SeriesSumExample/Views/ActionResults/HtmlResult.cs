@@ -1,28 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ASP_NET_SeriesSumExample.Controllers.ActionResults;
+namespace ASP_NET_SeriesSumExample.Views.ActionResults;
 
 public class HtmlResult : IActionResult
 {
-    private readonly string html;
+    private readonly string body;
 
-    public HtmlResult(string html)
+    public HtmlResult(string body)
     {
-        this.html = html;
+        this.body = body;
     }
 
-    public async Task ExecuteResultAsync(ActionContext context)
+    public string GetHTML()
     {
-        string fullHtmlCode = @$"
+        return @$"
             <!DOCTYPE html>
             <html>
                 <head>
                     <title>Лабораторная работа 1 Иванов И.И.</title>
                     <meta charset=utf-8 />
                 </head>
-                <body>{html}</body>
+                <body>{body}</body>
             </html>";
+    }
+
+    public async Task ExecuteResultAsync(ActionContext context)
+    {
+        var fullHtmlCode = GetHTML();
 
         await context.HttpContext.Response.WriteAsync(fullHtmlCode);
+    }
+
+    public override string ToString()
+    {
+        return GetHTML();
     }
 }
