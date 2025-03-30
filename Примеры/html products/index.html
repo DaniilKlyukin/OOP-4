@@ -3,48 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Панель фильтров</title>
+    <title>Панель фильтров и товары</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS файл -->
 </head>
 <body>
     <div class="container">
-        <aside class="filter-panel">
+	
+        <div class="filter-panel" id="filterPanel">
             <h2>Фильтры</h2>
-            <div class="filter">
-                <h3>Категория</h3>
-                <label><input type="checkbox"> Категория 1</label><br>
-                <label><input type="checkbox"> Категория 2</label><br>
-                <label><input type="checkbox"> Категория 3</label><br>
+            <form>
+                <label for="productName">Название продукта:</label>
+                <input type="text" id="productName" name="productName">
+
+                <label for="minPrice">Минимальная цена:</label>
+                <input type="number" id="minPrice" name="minPrice">
+
+                <label for="maxPrice">Максимальная цена:</label>
+                <input type="number" id="maxPrice" name="maxPrice">
+
+                <button type="submit">Применить</button>
+            </form>
+        </div>
+        <div class="product-panel">
+		    <button id="toggleButton">Скрыть фильтры</button>
+            <h2>Товары</h2>
+            <div class="product-list">
+                <div class="product-item">Товар 1</div>
+                <div class="product-item">Товар 2</div>
+                <div class="product-item">Товар 3</div>
+                <div class="product-item">Товар 4</div>
+                <div class="product-item">Товар 5</div>
             </div>
-            <div class="filter">
-                <h3>Цена</h3>
-                <label><input type="radio" name="price"> До 1000</label><br>
-                <label><input type="radio" name="price"> 1000 - 5000</label><br>
-                <label><input type="radio" name="price"> Более 5000</label><br>
-            </div>
-            <button class="apply-filters">Применить фильтры</button>
-        </aside>
-        <main class="content">
-            <h1>Содержимое страницы</h1>
-            <div class="products">
-                <!-- Пример товаров -->
-                <div class="product">Товар 1</div>
-                <div class="product">Товар 2</div>
-                <div class="product">Товар 3</div>
-                <div class="product">Товар 4</div>
-                <div class="product">Товар 5</div>
-                <div class="product">Товар 6</div>
-                <div class="product">Товар 7</div>
-                <div class="product">Товар 8</div>
-                <div class="product">Товар 9</div>
-                <div class="product">Товар 10</div>
-                <div class="product">Товар 11</div>
-                <div class="product">Товар 12</div>
-                <div class="product">Товар 13</div>
-                <div class="product">Товар 14</div>
-                <div class="product">Товар 15</div>
-            </div>
-        </main>
+        </div>
     </div>
+
+    <script src="script.js"></script> <!-- Подключаем JavaScript файл -->
 </body>
 </html>
