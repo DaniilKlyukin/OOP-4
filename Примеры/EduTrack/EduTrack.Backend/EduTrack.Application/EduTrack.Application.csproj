@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Attendance\Commands\" />
+    <Folder Include="Features\Attendance\Queries\" />
+    <Folder Include="Features\Cabinet\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EduTrack.Domain\EduTrack.Domain.csproj" />
+    <ProjectReference Include="..\EduTrack.Infrastructure\EduTrack.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
