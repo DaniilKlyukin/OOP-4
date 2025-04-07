@@ -3,7 +3,7 @@
 public class Homework
 {
     public Guid Id { get; set; }
-    public string Content { get; set; }
+    public string Content { get; set; } = null!;
     public DateTime Deadline { get; set; }
 
     public Guid SubjectId { get; set; }

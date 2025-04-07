@@ -3,8 +3,8 @@
 public class Group
 {
     public Guid Id { get; init; }
-    public string Name { get; set; }
-    public string Specialization { get; set; }
+    public string Name { get; set; } = null!;
+    public string Specialization { get; set; } = null!;
 
     public IReadOnlyCollection<Student> Students => _students.AsReadOnly();
     

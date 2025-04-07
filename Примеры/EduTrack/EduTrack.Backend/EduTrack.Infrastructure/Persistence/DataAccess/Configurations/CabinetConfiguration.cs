@@ -11,16 +11,15 @@ public class CabinetConfiguration : IEntityTypeConfiguration<Cabinet>
     {
         builder.HasKey(x => x.Id);
 
-        builder.Property(n => n.Building)
-            .HasMaxLength(Constraints.Cabinet.BuildingMaxLength)
-            .IsRequired();
+        builder.Property(x => x.Building)
+            .IsRequired()
+            .HasMaxLength(Constraints.Cabinet.BuildingMaxLength);
 
-        builder.Property(n => n.Audience)
-            .HasMaxLength(Constraints.Cabinet.AudienceMaxLength)
-            .IsRequired();
+        builder.Property(x => x.Audience)
+            .IsRequired()
+            .HasMaxLength(Constraints.Cabinet.AudienceMaxLength);
 
-        builder.Property(n => n.Description)
-            .HasMaxLength(Constraints.Cabinet.DescriptionMaxLength)
-            .HasMaxLength(500);
+        builder.Property(x => x.Description)
+            .HasMaxLength(Constraints.Cabinet.DescriptionMaxLength);
     }
 }

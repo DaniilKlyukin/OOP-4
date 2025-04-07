@@ -4,7 +4,7 @@ public class Lesson
 {
     public Guid Id { get; set; }
     public DateTime Date { get; set; }
-    public string Topic { get; set; }
+    public string Topic { get; set; } = null!;
     public bool IsCanceled { get; set; }
 
     public Guid SubjectId { get; set; }
@@ -16,7 +16,5 @@ public class Lesson
     public Guid GroupId { get; set; }
     public Group Group { get; set; }
 
-    public IReadOnlyCollection<Attendance> Attendances => _attendances.AsReadOnly();
-
-    private List<Attendance> _attendances = new();
+    public List<Attendance> Attendances { get; set; } = new();
 }
