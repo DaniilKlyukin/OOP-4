@@ -4,12 +4,12 @@ using Api.Contracts.GetLargestNote;
 using Api.Contracts.GetNotes;
 using Api.Contracts.UpdateNote;
 using Domain.Abstractions.Services;
-using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Persistence.DataAccess.Dto;
 using System.Linq.Expressions;
+using Note = Domain.Models.Note;
+using NoteEntity = Persistence.DataAccess.Entities.Note;
 
 namespace Api.Controllers;
 
@@ -26,6 +26,7 @@ public class NotesController : ControllerBase
         ILargestNoteService largestNoteService,
         NotesDbContext notesDbContext)
     {
+
         _noteService = noteService;
         _largestNoteService = largestNoteService;
         _notesDbContext = notesDbContext;
@@ -53,12 +54,13 @@ public class NotesController : ControllerBase
                 .Where(n => n.Title.ToLower().Contains(lower));
         }
 
-        Expression<Func<NoteDto, object>> selectorKey = request.SortItem?.ToLower() switch
-        {
-            "date" => note => note.CreatedAt,
-            "title" => note => note.Title,
-            _ => note => note.Id
-        };
+        Expression<Func<NoteEntity, object>> selectorKey =
+            request.SortItem?.ToLower() switch
+            {
+                "date" => note => note.CreatedAt,
+                "title" => note => note.Title,
+                _ => note => note.Id
+            };
 
         notesQuery = request.SortOrder == "desc"
             ? notesQuery.OrderByDescending(selectorKey)

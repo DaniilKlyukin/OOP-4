@@ -1,18 +1,18 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persistence.DataAccess.Dto;
+using Persistence.DataAccess.Entities;
 
 namespace Persistence.DataAccess.Configurations;
 
-public class NoteConfiguration : IEntityTypeConfiguration<NoteDto>
+public class NoteConfiguration : IEntityTypeConfiguration<Entities.Note>
 {
-    public void Configure(EntityTypeBuilder<NoteDto> builder)
+    public void Configure(EntityTypeBuilder<Entities.Note> builder)
     {
         builder.HasKey(x => x.Id);
 
         builder.Property(n => n.Title)
-            .HasMaxLength(Note.MAX_TITLE_LENGTH)
+            .HasMaxLength(Domain.Models.Note.MAX_TITLE_LENGTH)
             .IsRequired();
 
         builder.Property(n => n.Description)

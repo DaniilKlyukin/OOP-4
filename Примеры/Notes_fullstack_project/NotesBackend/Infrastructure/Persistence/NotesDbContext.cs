@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Persistence.DataAccess.Configurations;
-using Persistence.DataAccess.Dto;
+using Persistence.DataAccess.Entities;
 
 namespace Persistence;
 
@@ -17,5 +17,5 @@ public class NotesDbContext : DbContext
         modelBuilder.ApplyConfiguration(new NoteConfiguration());
     }
 
-    public DbSet<NoteDto> Notes => Set<NoteDto>();
+    public DbSet<Note> Notes => Set<Note>();
 }

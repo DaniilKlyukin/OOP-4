@@ -1,7 +1,6 @@
 ﻿using Domain.Abstractions.Repositories;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Persistence.DataAccess.Dto;
 
 namespace Persistence.DataAccess.Repositories;
 
@@ -16,9 +15,15 @@ public class NotesRepository : INotesRepository
 
     public async Task<Note> Create(Note note)
     {
-        var noteDto = new NoteDto(note.Id, note.Title, note.Description, note.CreatedAt);
+        var noteEntity = new Entities.Note
+        {
+            Id = note.Id,
+            Title = note.Title,
+            Description = note.Description,
+            CreatedAt = note.CreatedAt,
+        };
 
-        await _context.AddAsync(noteDto);
+        await _context.AddAsync(noteEntity);
         await _context.SaveChangesAsync();
 
         return note;
@@ -26,11 +31,11 @@ public class NotesRepository : INotesRepository
 
     public async Task<List<Note>> GetAll()
     {
-        var notesDto = await _context.Notes
+        var notesEntities = await _context.Notes
             .AsNoTracking()
             .ToListAsync();
 
-        var notes = notesDto
+        var notes = notesEntities
             .Select(n => new Note(n.Id, n.Title, n.Description, n.CreatedAt))
             .ToList();
 
@@ -39,14 +44,18 @@ public class NotesRepository : INotesRepository
 
     public async Task<Note?> GetById(Guid id)
     {
-        var noteDto = await _context.Notes
+        var noteEntity = await _context.Notes
             .AsNoTracking()
             .SingleOrDefaultAsync(n => n.Id == id);
 
-        if (noteDto == null)
+        if (noteEntity == null)
             return null;
 
-        return new Note(noteDto.Id, noteDto.Title, noteDto.Description, noteDto.CreatedAt);
+        return new Note(
+            noteEntity.Id, 
+            noteEntity.Title,
+            noteEntity.Description, 
+            noteEntity.CreatedAt);
     }
 
     public async Task<Note> Update(Note note)
