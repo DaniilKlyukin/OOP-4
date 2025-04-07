@@ -11,4 +11,6 @@ public class Department
 
     public Guid CabinetId { get; set; }
     public Cabinet Cabinet { get; set; } = null!;
+
+    public List<Teacher> Teachers { get; set; } = new();
 }

@@ -7,4 +7,7 @@ public class Department
     public string Phone { get; set; } = null!;
     public Faculty Faculty { get; set; }
     public Cabinet Cabinet { get; set; }
+    public IReadOnlyCollection<Teacher> Teachers => _teachers.AsReadOnly();
+
+    private List<Teacher> _teachers = new();
 }

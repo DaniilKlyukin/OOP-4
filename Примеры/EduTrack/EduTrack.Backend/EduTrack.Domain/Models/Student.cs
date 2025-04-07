@@ -1,4 +1,6 @@
-﻿namespace EduTrack.Domain.Models;
+﻿using EduTrack.Domain.Enums;
+
+namespace EduTrack.Domain.Models;
 
 public class Student
 {
@@ -6,6 +8,8 @@ public class Student
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
     public string? Patronymic { get; set; }
+    public Gender Gender { get; set; }
+    public int Age { get; set; }
     public string Email { get; set; } = null!;
     public string Phone { get; set; } = null!;
     public Group Group { get; set; }
