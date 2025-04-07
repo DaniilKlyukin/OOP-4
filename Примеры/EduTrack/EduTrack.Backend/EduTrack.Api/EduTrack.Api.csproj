@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mapster" Version="7.4.0" />
-    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+    <ProjectReference Include="..\EduTrack.Application\EduTrack.Application.csproj" />
+    <ProjectReference Include="..\EduTrack.Contracts\EduTrack.Contracts.csproj" />
+    <ProjectReference Include="..\EduTrack.Infrastructure\EduTrack.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

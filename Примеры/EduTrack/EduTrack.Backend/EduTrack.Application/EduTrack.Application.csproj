@@ -13,13 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EduTrack.Domain\EduTrack.Domain.csproj" />
-    <ProjectReference Include="..\EduTrack.Infrastructure\EduTrack.Infrastructure.csproj" />
+    <ProjectReference Include="..\EduTrack.Persistence\EduTrack.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

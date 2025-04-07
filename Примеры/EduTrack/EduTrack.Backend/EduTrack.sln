@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Contracts", "EduTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Application", "EduTrack.Application\EduTrack.Application.csproj", "{BE02F01F-982D-43BB-BED7-CC22BF51A675}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Persistence", "EduTrack.Persistence\EduTrack.Persistence.csproj", "{ACF91F98-EED8-40A6-9F50-3CAF45D08408}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BE02F01F-982D-43BB-BED7-CC22BF51A675}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE02F01F-982D-43BB-BED7-CC22BF51A675}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE02F01F-982D-43BB-BED7-CC22BF51A675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF91F98-EED8-40A6-9F50-3CAF45D08408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF91F98-EED8-40A6-9F50-3CAF45D08408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF91F98-EED8-40A6-9F50-3CAF45D08408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF91F98-EED8-40A6-9F50-3CAF45D08408}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
