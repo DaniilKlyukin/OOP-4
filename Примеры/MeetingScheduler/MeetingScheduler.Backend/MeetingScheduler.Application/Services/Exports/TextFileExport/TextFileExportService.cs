@@ -1,7 +1,7 @@
 ﻿using MeetingScheduler.Application.Interfaces.Services;
 using MeetingScheduler.Domain.Models;
 
-namespace MeetingScheduler.Application.Services;
+namespace MeetingScheduler.Application.Services.Exports.TextFileExport;
 
 public class TextFileExportService : IExportService
 {

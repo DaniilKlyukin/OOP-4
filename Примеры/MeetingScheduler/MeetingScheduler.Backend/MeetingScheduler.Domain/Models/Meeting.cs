@@ -9,12 +9,14 @@ public class Meeting : IEquatable<Meeting>
     public DateTime EndTime { get; private set; }
     public TimeSpan? NotificationTime { get; private set; }
     public bool NotificationSent { get; private set; }
+    public Guid OrganizerId { get; private set; }
 
     public Meeting(
         string title,
         string description,
         DateTime startTime,
         DateTime endTime,
+        Guid organizerId,
         TimeSpan? notificationTime = null)
     {
         ValidateTimeRange(startTime, endTime);
@@ -26,6 +28,7 @@ public class Meeting : IEquatable<Meeting>
         EndTime = endTime;
         NotificationTime = notificationTime;
         NotificationSent = false;
+        OrganizerId = organizerId;
     }
 
     public void UpdateDetails(string title, string description)

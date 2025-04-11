@@ -1,33 +1,19 @@
-﻿using MeetingScheduler.Domain.Models;
+﻿using MeetingScheduler.Application.Common;
+using MeetingScheduler.Domain.Models;
 
 namespace MeetingScheduler.Application.Interfaces.Services;
 
 public interface IMeetingService
 {
-    Task DeleteMeetingAsync(
-        Guid meetingId);
+    Task DeleteMeetingAsync(DeleteMeetingCommand command);
 
-    Task ExportDailyScheduleAsync(
-        DateTime date,
-        string filePath);
+    Task ExportDailyScheduleAsync(ExportDailyScheduleCommand command);
 
-    Task<IEnumerable<Meeting>> GetDailyScheduleAsync(
-        DateTime date);
+    Task<IEnumerable<Meeting>> GetDailyScheduleAsync(GetDailyScheduleQuery query);
 
     Task<IEnumerable<Meeting>> GetAllMeetings();
 
-    Task<Meeting> ScheduleMeetingAsync(
-        string title,
-        string description, 
-        DateTime startTime,
-        DateTime endTime,
-        TimeSpan? notificationTime = null);
+    Task<Meeting> ScheduleMeetingAsync(ScheduleMeetingCommand command);
 
-    Task UpdateMeetingAsync(
-        Guid meetingId,
-        string title,
-        string description,
-        DateTime startTime,
-        DateTime endTime,
-        TimeSpan? notificationTime = null);
+    Task UpdateMeetingAsync(UpdateMeetingCommand command);
 }

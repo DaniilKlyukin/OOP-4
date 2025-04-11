@@ -2,7 +2,7 @@
 using MeetingScheduler.Application.Interfaces.Services;
 using MeetingScheduler.Domain.Models;
 
-namespace MeetingScheduler.Application.Services;
+namespace MeetingScheduler.Application.Services.Notifications.ConsoleNotification;
 
 public class ConsoleNotificationService : INotificationService
 {

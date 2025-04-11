@@ -1,6 +1,7 @@
 ﻿using MeetingScheduler.Application;
+using MeetingScheduler.Application.Common;
 using MeetingScheduler.Application.Interfaces.Services;
-using MeetingScheduler.Application.Services;
+using MeetingScheduler.Application.Services.Meetings;
 using MeetingScheduler.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
@@ -114,12 +115,14 @@ public class Program
             Console.WriteLine("Неверный формат! Введите целое число минут.");
         }
 
-        var meeting = await meetingService.ScheduleMeetingAsync(
-                        title,
-                        description,
-                        startTime,
-                        endTime,
-                        notificationTime);
+        var command = new ScheduleMeetingCommand(title,
+                                                 description,
+                                                 startTime,
+                                                 endTime,
+                                                 Guid.NewGuid(),
+                                                 notificationTime);
+
+        var meeting = await meetingService.ScheduleMeetingAsync(command);
 
         Console.WriteLine($"Встреча '{meeting.Title}' успешно создана на {meeting.StartTime:g}");
     }
@@ -135,7 +138,9 @@ public class Program
 
         var meetingIndex = int.Parse(Console.ReadLine());
 
-        await meetingService.DeleteMeetingAsync(meetings[meetingIndex].Id);
+        var command = new DeleteMeetingCommand(meetings[meetingIndex].Id);
+
+        await meetingService.DeleteMeetingAsync(command);
     }
 
     private static async Task ExportDailyScheduleAsync(IMeetingService meetingService)
@@ -161,9 +166,9 @@ public class Program
 
         var folderPath = Console.ReadLine();
 
-        await meetingService.ExportDailyScheduleAsync(
-            date,
-            Path.Combine(folderPath, $"Расписание {date:d}.txt"));
+        var command = new ExportDailyScheduleCommand(date, Path.Combine(folderPath, $"Расписание {date:d}.txt"));
+
+        await meetingService.ExportDailyScheduleAsync(command);
 
         Console.WriteLine("Расписание экспортировано!");
     }
